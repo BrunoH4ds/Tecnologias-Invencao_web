@@ -1,0 +1,178 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+  font-family: "Chakra Petch", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('../img/christopher-gower-m_HRfLhgABo-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex; /* Make the body the full height */
+  min-height: 100vh; /* Ensure the body takes up the full viewport height */
+  flex-direction: column; /* Stack elements vertically */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container {
+  flex: 1; /* Allow the container to fill the remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+}
+
+nav {
+  background-color: rgba(51, 51, 51, 0.6); /* Blue with 20% transparency */
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  box-shadow:  0 0 10px rgba(51, 51, 51);
+}
+
+nav .icon-alight {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+
+nav .icon {
+  width: 48px;
+  height: auto;
+  margin-left: 20px;
+}
+
+nav .nav-alight {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav .selected{
+  color: #619cc9;
+}
+
+.header-alight{
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 0;
+  color: #fff;
+  text-shadow: 5px 5px 5px black;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Also center vertically if desired */
+}
+
+.pesquisa-alight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main label{
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 5px 5px 5px black;
+}
+
+main input {
+  width: 288px;
+  padding: 10px;
+  border: 1px solid #666; /* Bordas cinza mais escuro */
+  border-radius: 30px;
+  background-color: #f5f5f5; /* Fundo cinza claro */
+  color: #333; /* Texto cinza mais escuro */
+  text-align: center;
+}
+
+main button {
+  background-color: #4caf50; /* Verde claro */
+  color: #fff;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+}
+
+.Resposta_campo{
+  height: 300px;
+  overflow-y: auto;
+}
+
+.item-resposta{
+  display: flex;
+  background-color: rgba(51, 51, 51, 0.6);
+  box-shadow: 0 0 10px black;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 10px 0;
+  margin-bottom: 20px;
+}
+
+.titulo{
+  color: #fff;
+  margin: 10px 0;
+}
+
+.description{
+  color: #fff;
+  margin: 10px 0;
+}
+.more-info{
+  color: #619cc9;
+}
+
+@keyframes botao-press{
+  0%{
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.10);
+    box-shadow: none;
+  }
+}
+
+main button:hover{
+   animation-name: botao-press;
+   animation-duration: 0.35s;
+   animation-iteration-count: 1;
+   animation-direction:alternate-reverse;
+   cursor: pointer;
+   box-shadow: none;
+   background-color: #3c893e;
+}
+
+footer {
+  background-color: rgba(51, 51, 51, 0.6); /* Blue with 20% transparency */
+  box-shadow:  0 0 10px rgba(51, 51, 51);
+}
+.footer-text{
+  color: #fff;
+  text-align: center;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+
