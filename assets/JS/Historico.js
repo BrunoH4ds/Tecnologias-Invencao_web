@@ -1,11 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
+let historicoArray = [];
+
+function adicionarHistorico(item) {
+  const itemHistorico = {
+    titulo: item.titulo,
+    descricao: item.descricao,
+    link: item.link
+  };
+
+  console.log("Adicionando item ao histórico:", itemHistorico);
+
+  const itemExistente = historicoArray.some(h => h.titulo === item.titulo);
+
+  if (!itemExistente) {
+    historicoArray.push(itemHistorico);
+    console.log("Item adicionado ao histórico:", itemHistorico);
+  } else {
+    console.log("Item já existe no histórico, não será adicionado novamente.");
+  }
+
+  atualizarHistoricoVisualizacao();
+}
+
+function atualizarHistoricoVisualizacao() {
   const historicoCampo = document.querySelector('.historico-campo');
+  historicoCampo.innerHTML = '';
 
-  // Obtém o histórico armazenado no localStorage
-  const historico = JSON.parse(localStorage.getItem('historico') || '[]');
-
-  // Adiciona cada item ao histórico na página
-  historico.forEach(item => {
+  historicoArray.forEach(item => {
     const itemHistorico = document.createElement('div');
     itemHistorico.className = 'item-historico';
     itemHistorico.innerHTML = `
@@ -22,17 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     historicoCampo.appendChild(itemHistorico);
   });
-});
+}
 
 function Deletar_pesquisa(button) {
   const itemHistorico = button.closest('.item-historico');
   if (itemHistorico) {
-    itemHistorico.remove(); // Remove o item do histórico
-
-    // Atualiza o localStorage
     const tituloParaDeletar = itemHistorico.querySelector('.titulo').textContent;
-    let historico = JSON.parse(localStorage.getItem('historico') || '[]');
-    historico = historico.filter(item => item.titulo !== tituloParaDeletar);
-    localStorage.setItem('historico', JSON.stringify(historico));
+    historicoArray = historicoArray.filter(item => item.titulo !== tituloParaDeletar);
+    atualizarHistoricoVisualizacao();
   }
 }
