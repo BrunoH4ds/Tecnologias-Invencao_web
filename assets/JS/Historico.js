@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <p class="description">
         ${item.descricao}
-        <a class="more-info" href="${item.link}" target="_blank" rel="noopener noreferrer">Clique Aqui para saber mais</a>
+        <a class="more-info" href="${item.link}" target="_blank" rel="noopener noreferrer">Saiba Mais</a>
         </p>
       </div>
     `;
