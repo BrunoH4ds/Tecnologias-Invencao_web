@@ -110,19 +110,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adicionarHistorico(item) {
-    const itemHistorico = {
-      titulo: item.titulo,
-      descricao: item.descricao,
-      link: item.link
-    };
+  // Definir o item a ser adicionado
+  const itemHistorico = {
+    titulo: item.titulo,
+    descricao: item.descricao,
+    link: item.link
+  };
 
-    const historico = JSON.parse(localStorage.getItem('historico') || '[]');
+  console.log("Adicionando item ao histórico:", itemHistorico); // Log para depuração
 
-    // Verificar se o item já existe no histórico
-    if (!historico.some(h => h.titulo === item.titulo)) {
-      historico.push(itemHistorico);
-    }
+  // Recuperar o histórico do localStorage
+  let historico = JSON.parse(localStorage.getItem('historico') || '[]');
 
-    localStorage.setItem('historico', JSON.stringify(historico));
+  // Verificar se o item já existe no histórico
+  const itemExistente = historico.some(h => h.titulo === item.titulo);
+
+  if (!itemExistente) {
+    historico.push(itemHistorico);
+    console.log("Item adicionado ao histórico:", itemHistorico); // Log de sucesso
+  } else {
+    console.log("Item já existe no histórico, não será adicionado novamente."); // Log de item duplicado
+  }
+
+  // Atualizar o localStorage com o novo histórico
+  localStorage.setItem('historico', JSON.stringify(historico));
+
+  // Logar o estado atual do histórico para conferência
+  console.log("Histórico atualizado:", historico);
   }
 });
