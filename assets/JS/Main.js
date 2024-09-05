@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Mapeamento de sinônimos e termos relacionados
   const sinonimosMap = {
     'ia': 'inteligência artificial',
     'ai': 'inteligência artificial',
@@ -58,12 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const Local_rs = document.getElementById('Campo-Resposta');
   const alertBox = document.getElementById('alert');
 
+  // Adiciona um evento de clique no botão de pesquisa
   btn_pesquisa.addEventListener('click', Pesquisar);
 
+  // Função para remover acentos de uma string
   function removerAcentos(texto) {
     return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
+  // Função para realizar a pesquisa
   function Pesquisar() {
     let input_vlr = input.value.trim().toLowerCase();
     input_vlr = removerAcentos(input_vlr);
@@ -77,20 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Log para debug
     console.log("Valor de input normalizado:", input_vlr);
 
-    // Verifica se há sinônimo
+    // Verifica se há sinônimo e substitui pelo termo padrão
     if (sinonimosMap[input_vlr]) {
       input_vlr = sinonimosMap[input_vlr];
       console.log("Sinônimo encontrado:", input_vlr);
     }
 
+    // Busca o item correspondente no dadosMap
     const item = Object.values(window.dadosMap).find(dado => 
       removerAcentos(dado.titulo.toLowerCase()) === removerAcentos(input_vlr)
     );
 
     if (item) {
+      // Exibe o resultado da pesquisa
       const Resultados = `
         <div class="item-resposta">
           <h2 class="titulo">${item.titulo}</h2>
@@ -100,41 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>`;
       Local_rs.innerHTML = Resultados;
       alertBox.style.display = 'none';
-      adicionarHistorico(item);
+      adicionarHistorico(item); // Adiciona o item ao histórico
     } else {
+      // Exibe uma mensagem de erro se nenhum resultado for encontrado
       alertBox.innerHTML = `<p>Nenhum resultado encontrado para "${input.value}".</p>`;
       alertBox.style.display = 'block';
       Local_rs.innerHTML = '';
     }
     input.value = "";
-  }
-
-  function adicionarHistorico(item) {
-  // Definir o item a ser adicionado
-  const itemHistorico = {
-    titulo: item.titulo,
-    descricao: item.descricao,
-    link: item.link
-  };
-
-  console.log("Adicionando item ao histórico:", itemHistorico); // Log para depuração
-
-  // Recuperar o histórico do localStorage
-  let historico = JSON.parse(localStorage.getItem('historico') || '[]');
-
-  // Verificar se o item já existe no histórico
-  const itemExistente = historico.some(h => h.titulo === item.titulo);
-
-  if (!itemExistente) {
-    historico.push(itemHistorico);
-    console.log("Item adicionado ao histórico:", itemHistorico); // Log de sucesso
-  } else {
-    console.log("Item já existe no histórico, não será adicionado novamente."); // Log de item duplicado
-  }
-
-  // Atualizar o localStorage com o novo histórico
-  localStorage.setItem('historico', JSON.stringify(historico));
-  // Logar o estado atual do histórico para conferência
-  console.log("Histórico atualizado:", historico);
   }
 });
