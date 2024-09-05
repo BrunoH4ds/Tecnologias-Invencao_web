@@ -123,14 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let historico = JSON.parse(localStorage.getItem('historico') || '[]');
 
   // Verificar se o item já existe no histórico
-  
-
-  if (!itemExistente) {
-    historico.push(itemHistorico);
-    console.log("Item adicionado ao histórico:", itemHistorico); // Log de sucesso
-  } else {
-    console.log("Item já existe no histórico, não será adicionado novamente."); // Log de item duplicado
-  }
+    
 
   // Atualizar o localStorage com o novo histórico
   localStorage.setItem('historico', JSON.stringify(historico));
