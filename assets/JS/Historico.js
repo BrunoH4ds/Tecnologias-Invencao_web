@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const historicoCampo = document.querySelector('.historico-campo');
 
+  console.log(localStorage.getItem('test'));
+
   // Obtém o histórico armazenado no localStorage
   const historico = JSON.parse(localStorage.getItem('historico') || '[]');
 
