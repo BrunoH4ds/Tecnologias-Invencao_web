@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let historico = JSON.parse(localStorage.getItem('historico') || '[]');
 
   // Verificar se o item já existe no histórico
-  const itemExistente = historico.some(h => h.titulo === item.titulo);
+  
 
   if (!itemExistente) {
     historico.push(itemHistorico);
