@@ -62,3 +62,5 @@ function Deletar_pesquisa(button) {
     atualizarHistoricoVisualizacao(); // Atualiza a visualização do histórico
   }
 }
+// Disponibiliza a função globalmente para ser usada em outros scripts
+window.adicionarHistorico = adicionarHistorico;
