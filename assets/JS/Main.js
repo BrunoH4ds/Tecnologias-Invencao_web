@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Atualizar o localStorage com o novo histórico
   localStorage.setItem('historico', JSON.stringify(historico));
-
+  localStorage.setItem('test', 'This is a test');
   // Logar o estado atual do histórico para conferência
   console.log("Histórico atualizado:", historico);
   }
