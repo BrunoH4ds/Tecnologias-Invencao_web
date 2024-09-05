@@ -1,6 +1,9 @@
+// Array para armazenar o histórico de itens
 let historicoArray = [];
 
+// Função para adicionar um item ao histórico
 function adicionarHistorico(item) {
+  // Cria um objeto com as informações do item
   const itemHistorico = {
     titulo: item.titulo,
     descricao: item.descricao,
@@ -9,22 +12,27 @@ function adicionarHistorico(item) {
 
   console.log("Adicionando item ao histórico:", itemHistorico);
 
+  // Verifica se o item já existe no histórico
   const itemExistente = historicoArray.some(h => h.titulo === item.titulo);
 
   if (!itemExistente) {
+    // Adiciona o item ao array se não existir
     historicoArray.push(itemHistorico);
     console.log("Item adicionado ao histórico:", itemHistorico);
   } else {
     console.log("Item já existe no histórico, não será adicionado novamente.");
   }
 
+  // Atualiza a visualização do histórico
   atualizarHistoricoVisualizacao();
 }
 
+// Função para atualizar a visualização do histórico na página
 function atualizarHistoricoVisualizacao() {
   const historicoCampo = document.querySelector('.historico-campo');
-  historicoCampo.innerHTML = '';
+  historicoCampo.innerHTML = ''; // Limpa a visualização atual
 
+  // Adiciona cada item do histórico à página
   historicoArray.forEach(item => {
     const itemHistorico = document.createElement('div');
     itemHistorico.className = 'item-historico';
@@ -44,11 +52,13 @@ function atualizarHistoricoVisualizacao() {
   });
 }
 
+// Função para deletar um item do histórico
 function Deletar_pesquisa(button) {
   const itemHistorico = button.closest('.item-historico');
   if (itemHistorico) {
     const tituloParaDeletar = itemHistorico.querySelector('.titulo').textContent;
+    // Remove o item do array de histórico
     historicoArray = historicoArray.filter(item => item.titulo !== tituloParaDeletar);
-    atualizarHistoricoVisualizacao();
+    atualizarHistoricoVisualizacao(); // Atualiza a visualização do histórico
   }
 }
