@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const historicoCampo = document.querySelector('.historico-campo');
+  console.log('Elemento historicoCampo encontrado:', historicoCampo);
 
   // Obtém o histórico armazenado no localStorage
   const historico = JSON.parse(localStorage.getItem('historico') || '[]');
+  console.log('Dados do localStorage:', historico);
 
   // Adiciona cada item ao histórico na página
   if (historico.length > 0) {
@@ -36,9 +38,4 @@ function Deletar_pesquisa(button) {
     const tituloParaDeletar = itemHistorico.querySelector('.titulo').textContent;
     itemHistorico.remove(); // Remove o item do DOM
 
-    // Atualiza o localStorage removendo o item do histórico
-    let historico = JSON.parse(localStorage.getItem('historico') || '[]');
-    historico = historico.filter(item => item.titulo !== tituloParaDeletar);
-    localStorage.setItem('historico', JSON.stringify(historico));
-  }
-}
+    // Atualiza o localStorage removendo o
