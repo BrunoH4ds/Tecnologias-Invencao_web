@@ -29,6 +29,7 @@ nav {
   color: #fff;
   padding: 10px;
   box-shadow: 0 0 10px black;
+  backdrop-filter: blur(5px);
 }
 
 .nav-alight {
