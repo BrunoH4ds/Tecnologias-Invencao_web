@@ -1,6 +1,13 @@
+// Seleciona os elementos do DOM que serão usados
+const btn_pesquisa = document.getElementById('Pesquisar');
+const input = document.getElementById('search');
+const resultados_pesquisa = document.getElementById('Campo-Resposta');
+const alertBox = document.getElementById('alert');
+
 // Define a função Tudo globalmente
 function Tudo() {
   let resultados_tudo = '';
+  alertBox.innerHTML= ''
 
   // Percorre todos os itens no objeto window.dadosMap e cria um HTML com os dados
   for (let dado of Object.values(window.dadosMap)) {
@@ -78,11 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'data analytics': 'tecnologia de análise de dados',
   };
 
-  // Seleciona os elementos do DOM que serão usados
-  const btn_pesquisa = document.getElementById('Pesquisar');
-  const input = document.getElementById('search');
-  const resultados_pesquisa = document.getElementById('Campo-Resposta');
-  const alertBox = document.getElementById('alert');
 
   // Adiciona um evento ao botão de pesquisa para chamar a função Pesquisar
   btn_pesquisa.addEventListener('click', Pesquisar);
