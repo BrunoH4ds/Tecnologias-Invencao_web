@@ -12,6 +12,13 @@ body {
   flex-direction: column;
 }
 
+.mask{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
 body::-webkit-scrollbar {
   display: none;
   -ms-overflow-style: none;
@@ -127,6 +134,7 @@ main input {
   border: 1px solid #666;
   padding: 0px 10px;
   margin-top: 10px;
+  font-weight:bolder
   
 }
 
