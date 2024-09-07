@@ -39,7 +39,7 @@ nav {
   padding: 10px;
   box-shadow: 0 0 10px rgba(51, 51, 51);
   height: max-content;
-  filter: blur(1px)
+  filter: blur(1px);
 }
 
 .nav-alight {
