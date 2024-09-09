@@ -12,6 +12,7 @@ O Invenção Web é um projeto criado para facilitar a descoberta e o aprendizad
 # Tecnologias Utilizadas
 - HTML5, CSS3, JavaScript
 - Banco de dados local (cache) para armazenamento temporário do histórico
+- Material Design Icons: Biblioteca de ícones adicionais para personalização.
 - https://brunoh4ds.github.io/Tecnologias-Invencao_web/
 # Como Usar
 1. Acesse o link do projeto no navegador: [Invenção Web](https://brunoh4ds.github.io/Tecnologias-Invencao_web/).
